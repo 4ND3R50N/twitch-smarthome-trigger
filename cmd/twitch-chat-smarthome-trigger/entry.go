@@ -13,7 +13,7 @@ func main() {
 	fmt.Println("Join channels...")
 	irc.Client.Join("juel_djteam")
 
-	fmt.Printf("Connect to mqtt...")
+	fmt.Println("Connect to mqtt...")
 	mqtt.Connect("tcp://localhost:1883")
 
 	fmt.Println("Start running...")

@@ -13,6 +13,6 @@ func Connect(broker string) {
 
 	brokerClient := mqtt.NewClient(opts)
 	if token := brokerClient.Connect(); token.Wait() && token.Error() != nil {
-		fmt.Printf(token.Error().Error())
+		fmt.Println(token.Error().Error())
 	}
 }

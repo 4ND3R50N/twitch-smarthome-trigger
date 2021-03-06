@@ -7,7 +7,11 @@ import (
 
 func PublishTwitchCallbacks(client *twitch.Client) {
 	client.OnPrivateMessage(func(message twitch.PrivateMessage) {
-		smarthome.HandleMessage(message.Message)
+		status := smarthome.HandleMessage(message.Message)
+
+		if status != "" {
+			client.Say("juel_djteam", status)
+		}
 	})
 
 	// add other twitch irc events here
