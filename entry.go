@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+
 	"github.com/4ND3R50N/twitch-chat-smarthome-trigger/mqtt"
 	"github.com/4ND3R50N/twitch-chat-smarthome-trigger/twitch/irc"
 )

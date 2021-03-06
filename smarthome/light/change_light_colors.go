@@ -2,8 +2,9 @@ package light
 
 import (
 	"errors"
-	"github.com/4ND3R50N/twitch-chat-smarthome-trigger/mqtt"
 	"io/ioutil"
+
+	"github.com/4ND3R50N/twitch-chat-smarthome-trigger/mqtt"
 )
 
 func ChangeColor(color Color) (string, error) {
