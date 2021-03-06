@@ -12,7 +12,8 @@ const lightCommand = "change_lights " + commandSeparator
 func HandleMessage(message string) string {
 	if strings.HasPrefix(message, lightCommand) {
 		command := strings.Split(message, commandSeparator)
-		status, err := light.ChangeColor(light.Color(command[1]))
+		fmt.Println("DEBUG: command 1: " + command[1])
+		status, err := light.ChangeColor(light.Color(command[1]).ByString(command[1]))
 
 		if err != nil {
 			fmt.Printf(err.Error())
