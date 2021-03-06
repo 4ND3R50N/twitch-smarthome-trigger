@@ -4,7 +4,7 @@ import (
 	"errors"
 	"io/ioutil"
 
-	"github.com/4ND3R50N/twitch-chat-smarthome-trigger/mqtt"
+	"github.com/4ND3R50N/twitch-chat-smarthome-trigger/internal/twitch-chat-smarthome-trigger/mqtt"
 )
 
 func ChangeColor(color Color) (string, error) {

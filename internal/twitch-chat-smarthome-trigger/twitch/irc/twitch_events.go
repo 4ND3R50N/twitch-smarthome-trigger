@@ -1,8 +1,7 @@
 package irc
 
 import (
-	"github.com/4ND3R50N/twitch-chat-smarthome-trigger/smarthome"
-
+	"github.com/4ND3R50N/twitch-chat-smarthome-trigger/internal/twitch-chat-smarthome-trigger/smarthome"
 	"github.com/gempir/go-twitch-irc/v2"
 )
 

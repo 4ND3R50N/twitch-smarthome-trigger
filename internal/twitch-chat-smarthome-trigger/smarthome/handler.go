@@ -2,7 +2,7 @@ package smarthome
 
 import (
 	"fmt"
-	"github.com/4ND3R50N/twitch-chat-smarthome-trigger/smarthome/light"
+	"github.com/4ND3R50N/twitch-chat-smarthome-trigger/internal/twitch-chat-smarthome-trigger/smarthome/light"
 	"strings"
 )
 
