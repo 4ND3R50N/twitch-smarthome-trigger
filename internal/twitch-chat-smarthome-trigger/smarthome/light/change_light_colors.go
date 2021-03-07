@@ -2,6 +2,7 @@ package light
 
 import (
 	"errors"
+	"fmt"
 	"github.com/4ND3R50N/twitch-chat-smarthome-trigger/pkg/project"
 	"io/ioutil"
 
@@ -17,7 +18,7 @@ func ChangeColor(color Color) (string, error) {
 		if err != nil {
 			return "", errors.New("unable to load file for color " + Blue.String())
 		}
-
+		fmt.Println("Until here everything works!")
 		// todo: adjust topic name
 		// todo: store smarthome devices in seperate file
 		// workstation-01
