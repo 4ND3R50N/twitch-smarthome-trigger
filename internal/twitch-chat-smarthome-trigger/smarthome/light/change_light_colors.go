@@ -23,7 +23,7 @@ func ChangeColor(color Color) (string, error) {
 		// todo: adjust topic name
 		// todo: store smarthome devices in seperate file
 		// workstation-01
-		fmt.Println("Send message")
+		fmt.Println("Send message payload" + string(file))
 		rs1 := mqtt.BrokerClient.Publish("homeassist/0x00158d00038ea806/set", 1, false, file)
 		rs1.Wait()
 		// workstation-02
