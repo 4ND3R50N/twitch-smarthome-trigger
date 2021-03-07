@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strconv"
 
 	"github.com/4ND3R50N/twitch-chat-smarthome-trigger/internal/twitch-chat-smarthome-trigger/twitch/irc"
 	"github.com/4ND3R50N/twitch-chat-smarthome-trigger/pkg/mqtt"
@@ -19,7 +20,7 @@ func main() {
 	fmt.Println("Connect to mqtt...")
 	// todo: use env vars
 	mqtt.Connect("tcp://localhost:1883", "naokiii", "bringMoflv45", "twitch-chat-smarthome-trigger")
-
+	fmt.Println("Mqtt connected: " + strconv.FormatBool(mqtt.BrokerClient.IsConnected()))
 	fmt.Println("Start running...")
 	// todo: use env vars
 	irc.Client.Say("juel_djteam", "Mr. Johnson is ONLINE!")
