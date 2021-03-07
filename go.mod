@@ -1,4 +1,4 @@
-module github.com/4ND3R50N/twitch-chat-smarthome-trigger
+module github.com/4ND3R50N/twitch-smarthome-trigger
 
 go 1.16
 
