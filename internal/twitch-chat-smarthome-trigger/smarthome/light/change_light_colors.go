@@ -2,8 +2,8 @@ package light
 
 import (
 	"errors"
-	"github.com/4ND3R50N/twitch-chat-smarthome-trigger/pkg/mqtt"
-	"github.com/4ND3R50N/twitch-chat-smarthome-trigger/pkg/project"
+	"github.com/4ND3R50N/twitch-smarthome-trigger/pkg/mqtt"
+	"github.com/4ND3R50N/twitch-smarthome-trigger/pkg/project"
 	"io/ioutil"
 )
 

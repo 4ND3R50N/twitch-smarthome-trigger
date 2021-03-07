@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/4ND3R50N/twitch-chat-smarthome-trigger/internal/twitch-chat-smarthome-trigger/twitch/irc"
-	"github.com/4ND3R50N/twitch-chat-smarthome-trigger/pkg/mqtt"
-	"github.com/4ND3R50N/twitch-chat-smarthome-trigger/pkg/project"
+	"github.com/4ND3R50N/twitch-smarthome-trigger/internal/twitch-chat-smarthome-trigger/twitch/irc"
+	"github.com/4ND3R50N/twitch-smarthome-trigger/pkg/mqtt"
+	"github.com/4ND3R50N/twitch-smarthome-trigger/pkg/project"
 )
 
 func main() {
