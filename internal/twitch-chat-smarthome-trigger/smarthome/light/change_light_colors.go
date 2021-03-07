@@ -23,12 +23,15 @@ func ChangeColor(color Color) (string, error) {
 		// todo: adjust topic name
 		// todo: store smarthome devices in seperate file
 		// workstation-01
+		fmt.Println("Send message")
 		rs1 := mqtt.BrokerClient.Publish("homeassist/0x00158d00038ea806/set", 1, false, file)
 		rs1.Wait()
 		// workstation-02
+		fmt.Println("Send message")
 		rs2 := mqtt.BrokerClient.Publish("homeassist/0x00158d00038ebb56/set", 1, false, file)
 		rs2.Wait()
 		// workstation-03
+		fmt.Println("Send message")
 		rs3 := mqtt.BrokerClient.Publish("homeassist/0x00158d00038eca7c/set", 1, false, file)
 		rs3.Wait()
 		return "Room color changed to " + Blue.String(), nil
