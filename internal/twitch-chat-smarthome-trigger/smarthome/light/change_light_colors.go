@@ -2,6 +2,7 @@ package light
 
 import (
 	"errors"
+	"github.com/4ND3R50N/twitch-chat-smarthome-trigger/pkg/project"
 	"io/ioutil"
 
 	"github.com/4ND3R50N/twitch-chat-smarthome-trigger/pkg/mqtt"
@@ -11,7 +12,7 @@ func ChangeColor(color Color) (string, error) {
 	if color == Blue {
 		// todo: make function for sending payload by color
 		// todo: add real payload
-		file, err := ioutil.ReadFile("../assets/smarthome/light/bright_blue.json")
+		file, err := ioutil.ReadFile(project.Path + "/assets/smarthome/light/bright_blue.json")
 
 		if err != nil {
 			return "", errors.New("unable to load file for color " + Blue.String())
