@@ -7,7 +7,7 @@ import (
 )
 
 const commandSeparator string = " "
-const lightCommand = "change_lights " + commandSeparator
+const lightCommand = "change_lights" + commandSeparator
 
 func HandleMessage(message string) string {
 	if strings.HasPrefix(message, lightCommand) {
