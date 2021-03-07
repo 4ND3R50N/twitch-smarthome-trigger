@@ -10,6 +10,7 @@ func PublishTwitchCallbacks(client *twitch.Client) {
 		status := smarthome.HandleMessage(message.Message)
 
 		if status != "" {
+			// todo: use env var here
 			client.Say("juel_djteam", status)
 		}
 	})

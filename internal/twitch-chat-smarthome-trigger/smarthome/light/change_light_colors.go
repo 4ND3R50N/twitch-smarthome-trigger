@@ -4,7 +4,7 @@ import (
 	"errors"
 	"io/ioutil"
 
-	"github.com/4ND3R50N/twitch-chat-smarthome-trigger/internal/twitch-chat-smarthome-trigger/mqtt"
+	"github.com/4ND3R50N/twitch-chat-smarthome-trigger/pkg/mqtt"
 )
 
 func ChangeColor(color Color) (string, error) {
@@ -18,6 +18,7 @@ func ChangeColor(color Color) (string, error) {
 		}
 
 		// todo: adjust topic name
+		// todo: store smarthome devices in seperate file
 		// workstation-01
 		rs1 := mqtt.BrokerClient.Publish("homeassist/0x00158d00038ea806/set", 1, false, file)
 		rs1.Wait()

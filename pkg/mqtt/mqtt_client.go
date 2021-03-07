@@ -8,8 +8,8 @@ import (
 
 var BrokerClient mqtt.Client
 
-func Connect(broker string) {
-	opts := mqtt.NewClientOptions().AddBroker(broker).SetUsername("naokiii").SetPassword("bringMoflv45").SetClientID("twitch-chat-smarthome-trigger")
+func Connect(broker string, userName string, password string, clientId string) {
+	opts := mqtt.NewClientOptions().AddBroker(broker).SetUsername(userName).SetPassword(password).SetClientID(clientId)
 
 	brokerClient := mqtt.NewClient(opts)
 	if token := brokerClient.Connect(); token.Wait() && token.Error() != nil {
