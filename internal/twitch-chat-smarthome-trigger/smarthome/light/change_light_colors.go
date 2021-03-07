@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"github.com/4ND3R50N/twitch-chat-smarthome-trigger/pkg/project"
 	"io/ioutil"
+	"strconv"
 
 	"github.com/4ND3R50N/twitch-chat-smarthome-trigger/pkg/mqtt"
 )
@@ -18,7 +19,7 @@ func ChangeColor(color Color) (string, error) {
 		if err != nil {
 			return "", errors.New("unable to load file for color " + Blue.String())
 		}
-		fmt.Println("Until here everything works!")
+		fmt.Println("Until here everything works! Mqtt connected: " + strconv.FormatBool(mqtt.BrokerClient.IsConnected()))
 		// todo: adjust topic name
 		// todo: store smarthome devices in seperate file
 		// workstation-01
