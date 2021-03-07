@@ -11,7 +11,7 @@ const lightCommand = "change_lights" + commandSeparator
 
 func HandleMessage(message string) string {
 	if strings.HasPrefix(message, lightCommand) {
-		changeLights(message)
+		return changeLights(message)
 	}
 	// add other smarthome commands here
 	return ""

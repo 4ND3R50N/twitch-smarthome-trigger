@@ -1,6 +1,7 @@
 package irc
 
 import (
+	"fmt"
 	"github.com/4ND3R50N/twitch-smarthome-trigger/internal/twitch-chat-smarthome-trigger/smarthome"
 	"github.com/gempir/go-twitch-irc/v2"
 )
@@ -11,6 +12,7 @@ func PublishTwitchCallbacks(client *twitch.Client) {
 
 		if status != "" {
 			// todo: use env var here
+			fmt.Println(status)
 			client.Say("juel_djteam", status)
 		}
 	})
