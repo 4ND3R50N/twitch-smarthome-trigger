@@ -6,12 +6,11 @@ import (
 	"strings"
 )
 
-const commandSeparator string = ""
+const commandSeparator string = " "
 const lightCommand = "change_lights " + commandSeparator
 
 func HandleMessage(message string) string {
 	if strings.HasPrefix(message, lightCommand) {
-		fmt.Println("DEBUG: message: " + message)
 		command := strings.Split(message, commandSeparator)
 		fmt.Println("DEBUG: command 1: " + command[1])
 		status, err := light.ChangeColor(light.Color(command[1]).ByString(command[1]))
