@@ -27,7 +27,7 @@ func ChangeColor(color Color) (string, error) {
 		return "Your color is not implemented yet!", nil
 	}
 	setLightState(payload)
-	return "Successfully changed color", nil
+	return "", nil
 }
 
 func setLightState(payload []byte) {
