@@ -8,6 +8,7 @@ import (
 
 func PublishTwitchCallbacks(client *twitch.Client) {
 	client.OnPrivateMessage(func(message twitch.PrivateMessage) {
+		// todo: add delay for channel messages
 		status := smarthome.HandleMessage(message.Message)
 
 		if status != "" {
@@ -17,5 +18,13 @@ func PublishTwitchCallbacks(client *twitch.Client) {
 		}
 	})
 
-	// add other twitch irc events here
+	client.OnWhisperMessage(func(message twitch.WhisperMessage) {
+		status := smarthome.HandleMessage(message.Message)
+
+		if status != "" {
+			// todo: use env var here
+			fmt.Println(status)
+			client.Say("juel_djteam", status)
+		}
+	})
 }
