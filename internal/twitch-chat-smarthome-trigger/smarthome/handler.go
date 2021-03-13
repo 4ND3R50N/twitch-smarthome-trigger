@@ -11,9 +11,7 @@ import (
 const commandSeparator string = " "
 const lightCommand = "!change_lights" + commandSeparator
 
-var (
-	secondsTimer *timer.SecondsTimer
-)
+var secondsTimer = timer.NewSecondsTimer(time.Second * 0)
 
 func HandleMessage(message string) string {
 	if strings.HasPrefix(message, lightCommand) {
@@ -37,13 +35,6 @@ func changeLights(message string) string {
 		fmt.Printf(err.Error())
 		return "Ups, something went wrong changing the light colors!"
 	}
-	duration, err := time.ParseDuration("10h")
-
-	if err != nil {
-		fmt.Printf(err.Error())
-		return "Ups, something went wrong changing the light colors!"
-	}
-
-	secondsTimer = timer.NewSecondsTimer(duration)
+	secondsTimer = timer.NewSecondsTimer(30 * time.Second)
 	return status
 }
