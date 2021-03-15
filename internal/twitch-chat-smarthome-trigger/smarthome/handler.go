@@ -25,7 +25,7 @@ func changeLights(message string) string {
 
 	remaining := secondsTimer.TimeRemaining()
 	if remaining.Seconds() > 0 {
-		return "Light change is available after " + fmt.Sprintf("%.0f", remaining.Seconds()) + "Seconds"
+		return "Light change is available after " + fmt.Sprintf("%.0f", remaining.Seconds()) + " Seconds!"
 	}
 
 	command := strings.Split(message, commandSeparator)
