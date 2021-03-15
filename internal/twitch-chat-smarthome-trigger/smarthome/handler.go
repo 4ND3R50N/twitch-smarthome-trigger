@@ -35,6 +35,7 @@ func changeLights(message string) string {
 		fmt.Printf(err.Error())
 		return "Ups, something went wrong changing the light colors!"
 	}
-	secondsTimer = timer.NewSecondsTimer(30 * time.Second)
+	// todo: make var configurable
+	secondsTimer = timer.NewSecondsTimer(10 * time.Second)
 	return status
 }
