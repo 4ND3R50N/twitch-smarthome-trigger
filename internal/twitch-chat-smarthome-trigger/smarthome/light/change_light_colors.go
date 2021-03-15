@@ -31,7 +31,7 @@ func ChangeColor(color Color) (string, error) {
 }
 
 func setLightState(payload []byte) {
-	// todo: store smarthome devices in seperate file
+	// todo: store smart home devices in separate file
 	// workstation-01
 	rs1 := mqtt.BrokerClient.Publish("homeassistant/0x00158d00038ea806/set", 1, false, payload)
 	rs1.Wait()
@@ -41,4 +41,8 @@ func setLightState(payload []byte) {
 	// workstation-03
 	rs3 := mqtt.BrokerClient.Publish("homeassistant/0x00158d00038eca7c/set", 1, false, payload)
 	rs3.Wait()
+
+	// led-01
+	rs4 := mqtt.BrokerClient.Publish("homeassistant/0x588e81fffe5a09f1/set", 1, false, payload)
+	rs4.Wait()
 }
