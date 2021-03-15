@@ -9,7 +9,7 @@ import (
 )
 
 const commandSeparator string = " "
-const lightCommand = "!change_lights" + commandSeparator
+const lightCommand = "!lights" + commandSeparator
 
 var secondsTimer = timer.NewSecondsTimer(time.Second * 0)
 
