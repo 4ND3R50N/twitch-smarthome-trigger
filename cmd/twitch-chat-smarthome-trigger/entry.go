@@ -20,7 +20,7 @@ func main() {
 	mqtt.Connect("tcp://localhost:1883", "naokiii", "bringMoflv45", "twitch-chat-smarthome-trigger")
 	fmt.Println("Start running...")
 	// todo: use env vars
-	irc.Client.Say("juel_djteam", "Mr. Johnson is ONLINE!")
+	irc.Client.Say("juel_djteam", "BOT is ONLINE!")
 	err := irc.Client.Connect()
 	if err != nil {
 		panic(err)
