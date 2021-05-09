@@ -1,4 +1,4 @@
-package irc
+package twitch
 
 import (
 	"fmt"
