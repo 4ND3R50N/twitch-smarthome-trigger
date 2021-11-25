@@ -14,7 +14,7 @@ func PublishTwitchCallbacks(client *twitch.Client) {
 		if status != "" {
 			// todo: use env var here
 			fmt.Println(status)
-			client.Say("juel_djteam", status)
+			client.Say("Houseaffair", status)
 		}
 	})
 
@@ -24,7 +24,7 @@ func PublishTwitchCallbacks(client *twitch.Client) {
 		if status != "" {
 			// todo: use env var here
 			fmt.Println(status)
-			client.Say("juel_djteam", status)
+			client.Say("Houseaffair", status)
 		}
 	})
 }
