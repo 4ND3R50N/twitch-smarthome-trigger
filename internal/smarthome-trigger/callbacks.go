@@ -8,11 +8,6 @@ import (
 	"net/http"
 )
 
-type SceneBodyRequest struct {
-	Service     string    `json:"service"`
-	ServiceData SceneData `json:"service_data"`
-}
-
 type SceneData struct {
 	EntityID string `json:"entity_id"`
 }
@@ -25,18 +20,15 @@ func (s *Service) homeAssistantCommandParser(message string) (*string, error) {
 		return nil, nil
 	}
 	if command == LightCommand {
-		request := SceneBodyRequest{
-			Service: "scene.turn_on",
-			ServiceData: SceneData{
-				EntityID: "scene." + content,
-			},
+		request := SceneData{
+			EntityID: "scene." + content,
 		}
 		byteRequest, err := json.Marshal(request)
 		if err != nil {
 			return nil, err
 		}
 		req, err := http.NewRequest("POST",
-			s.homeAssistantURL+"/api/services/scene", bytes.NewBuffer(byteRequest))
+			s.homeAssistantURL+"/api/services/scene/turn_on", bytes.NewBuffer(byteRequest))
 		if err != nil {
 			return nil, err
 		}
@@ -52,6 +44,5 @@ func (s *Service) homeAssistantCommandParser(message string) (*string, error) {
 			return nil, errors.New(fmt.Sprintf("HA Status Code: %s", response.Status))
 		}
 	}
-	fmt.Println("test5")
 	return nil, nil
 }
