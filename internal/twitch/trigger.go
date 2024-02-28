@@ -39,6 +39,7 @@ func (t *Trigger) RegisterPrivateMessageCallbacks(handleMessage func(message str
 
 func (t *Trigger) RegisterWhisperCallbacks(handleMessage func(message string) (*string, error)) {
 	t.client.OnWhisperMessage(func(message twitch.WhisperMessage) {
+		fmt.Println("Incoming message: " + message.Message)
 		feedbackText, err := handleMessage(message.Message)
 		if err != nil {
 			fmt.Println(fmt.Sprintf("WhisperCallback error: %v", err))
