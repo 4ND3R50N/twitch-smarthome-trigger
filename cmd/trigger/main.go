@@ -14,7 +14,7 @@ func main() {
 
 	triggerOpts := twitch.TriggerOpts{}
 
-	fmt.Println("Collect ENV vars.")
+	fmt.Println("Collect ENV vars")
 	fs.StringVar(&triggerOpts.TwitchChannelName, "twitch-channel-name", "", "Twitch Channel Name")
 	fs.StringVar(&triggerOpts.TwitchUser, "twitch-user", "", "Twitch user")
 	fs.StringVar(&triggerOpts.TwitchOAuth, "twitch-oauth", "", "Twitch OAuth")
@@ -28,7 +28,7 @@ func main() {
 		panic("unable to parse flags")
 	}
 
-	fmt.Println("Init services...")
+	fmt.Println("Initialize services")
 	trigger := twitch.NewTrigger(triggerOpts)
 	service := smarthomeTrigger.NewService(trigger, homeAssistantToken, homeAssistantURL)
 

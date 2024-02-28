@@ -33,6 +33,7 @@ func (t *Trigger) RegisterPrivateMessageCallbacks(handleMessage func(message str
 			t.client.Say(t.ChannelName, *feedbackText)
 		}
 	})
+	fmt.Println("PrivateMessageCallbacks registered")
 }
 
 func (t *Trigger) RegisterWhisperCallbacks(handleMessage func(message string) (*string, error)) {
@@ -45,6 +46,7 @@ func (t *Trigger) RegisterWhisperCallbacks(handleMessage func(message string) (*
 			t.client.Say(t.ChannelName, *feedbackText)
 		}
 	})
+	fmt.Println("WhisperMessageCallbacks registered")
 }
 
 func (t *Trigger) Run() error {
