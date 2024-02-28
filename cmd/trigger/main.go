@@ -32,7 +32,6 @@ func main() {
 	trigger := twitch.NewTrigger(triggerOpts)
 	service := smarthomeTrigger.NewService(trigger, homeAssistantToken, homeAssistantURL)
 
-	fmt.Println("Run...")
 	if err := service.Run(); err != nil {
 		panic(err)
 	}

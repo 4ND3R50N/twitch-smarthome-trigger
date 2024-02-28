@@ -25,6 +25,7 @@ func NewTrigger(opts TriggerOpts) *Trigger {
 
 func (t *Trigger) RegisterPrivateMessageCallbacks(handleMessage func(message string) (*string, error)) {
 	t.client.OnPrivateMessage(func(message twitch.PrivateMessage) {
+		fmt.Println("Incoming message: " + message.Message)
 		feedbackText, err := handleMessage(message.Message)
 		if err != nil {
 			fmt.Println(fmt.Sprintf("PrivateMessageCallback error: %v", err))

@@ -1,6 +1,7 @@
 package smarthome_trigger
 
 import (
+	"fmt"
 	"github.com/4ND3R50N/twitch-smarthome-trigger/internal/twitch"
 	"net/http"
 	"time"
@@ -24,6 +25,7 @@ func NewService(twitchTrigger *twitch.Trigger, token string, url string) *Servic
 
 func (s *Service) Run() error {
 	s.twitchTrigger.RegisterPrivateMessageCallbacks(s.homeAssistantCommandParser)
+	fmt.Println("Run Service...")
 	if err := s.twitchTrigger.Run(); err != nil {
 		return err
 	}
