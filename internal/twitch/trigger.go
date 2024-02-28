@@ -25,7 +25,7 @@ func NewTrigger(opts TriggerOpts) *Trigger {
 
 func (t *Trigger) RegisterPrivateMessageCallbacks(handleMessage func(message string) (*string, error)) {
 	t.client.OnPrivateMessage(func(message twitch.PrivateMessage) {
-		fmt.Println("Incoming message: " + message.Message)
+		fmt.Println("Incoming private message: " + message.Message)
 		feedbackText, err := handleMessage(message.Message)
 		if err != nil {
 			fmt.Println(fmt.Sprintf("PrivateMessageCallback error: %v", err))
@@ -39,7 +39,7 @@ func (t *Trigger) RegisterPrivateMessageCallbacks(handleMessage func(message str
 
 func (t *Trigger) RegisterWhisperCallbacks(handleMessage func(message string) (*string, error)) {
 	t.client.OnWhisperMessage(func(message twitch.WhisperMessage) {
-		fmt.Println("Incoming message: " + message.Message)
+		fmt.Println("Incoming whisper message: " + message.Message)
 		feedbackText, err := handleMessage(message.Message)
 		if err != nil {
 			fmt.Println(fmt.Sprintf("WhisperCallback error: %v", err))
@@ -52,6 +52,7 @@ func (t *Trigger) RegisterWhisperCallbacks(handleMessage func(message string) (*
 }
 
 func (t *Trigger) Run() error {
+	t.client.Join(t.ChannelName)
 	t.client.Say(t.ChannelName, "SmartHome Trigger is ONLINE!")
 	if err := t.client.Connect(); err != nil {
 		return err
