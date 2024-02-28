@@ -3,6 +3,7 @@ package smarthome_trigger
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"net/http"
 )
 
@@ -17,11 +18,13 @@ type SceneData struct {
 
 func (s *Service) homeAssistantCommandParser(message string) (*string, error) {
 	// parse command
+	fmt.Println("test")
 	command, content, err := ParseCommands(message)
 	if err != nil {
 		// Only early return, since most of the messages are no commands.
 		return nil, nil
 	}
+	fmt.Println("test")
 	if command == LightCommand {
 		request := SceneBodyRequest{
 			Service: "scene.turn_on",
