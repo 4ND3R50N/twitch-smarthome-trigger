@@ -3,6 +3,7 @@ package smarthome_trigger
 import (
 	"bytes"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"net/http"
 )
@@ -24,7 +25,6 @@ func (s *Service) homeAssistantCommandParser(message string) (*string, error) {
 		return nil, nil
 	}
 	if command == LightCommand {
-		fmt.Println("test1")
 		request := SceneBodyRequest{
 			Service: "scene.turn_on",
 			ServiceData: SceneData{
@@ -35,23 +35,21 @@ func (s *Service) homeAssistantCommandParser(message string) (*string, error) {
 		if err != nil {
 			return nil, err
 		}
-		fmt.Println("test2")
 		req, err := http.NewRequest("POST",
 			s.homeAssistantURL+"/api/services/scene", bytes.NewBuffer(byteRequest))
 		if err != nil {
 			return nil, err
 		}
-		fmt.Println("test3")
 		req.Header.Add("content-type", "application/json")
-		req.Header.Add("Authorization", s.homeAssistantToken)
+		req.Header.Add("Authorization", "Bearer "+s.homeAssistantToken)
 		response, err := s.apiClient.Do(req)
 		if err != nil {
 			return nil, err
 		}
-		fmt.Println("test4")
+		fmt.Println("test4: " + response.Status)
 		defer response.Body.Close()
 		if response.Status != "200" {
-			return nil, err
+			return nil, errors.New(fmt.Sprintf("HA Status Code: %s", response.Status))
 		}
 	}
 	fmt.Println("test5")
