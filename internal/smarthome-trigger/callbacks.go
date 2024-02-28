@@ -6,6 +6,8 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
+
+	"github.com/4ND3R50N/go-tools/converter"
 )
 
 type SceneData struct {
@@ -38,11 +40,10 @@ func (s *Service) homeAssistantCommandParser(message string) (*string, error) {
 		if err != nil {
 			return nil, err
 		}
-		fmt.Println("test4: " + response.Status)
 		defer response.Body.Close()
 		if response.Status != "200" {
 			return nil, errors.New(fmt.Sprintf("HA Status Code: %s", response.Status))
 		}
 	}
-	return nil, nil
+	return converter.ToPointer("Uhh, its " + content + "now 😏"), nil
 }
