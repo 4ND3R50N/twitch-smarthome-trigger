@@ -1,8 +1,8 @@
 module github.com/4ND3R50N/twitch-smarthome-trigger
 
-go 1.16
+go 1.22
 
 require (
-	github.com/eclipse/paho.mqtt.golang v1.3.2
-	github.com/gempir/go-twitch-irc/v2 v2.5.0
+	github.com/gempir/go-twitch-irc/v2 v2.8.1
+	github.com/peterbourgon/ff/v3 v3.4.0
 )
