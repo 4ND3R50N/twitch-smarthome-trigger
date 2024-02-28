@@ -24,7 +24,7 @@ func NewService(twitchTrigger *twitch.Trigger, token string, url string) *Servic
 }
 
 func (s *Service) Run() error {
-	s.twitchTrigger.RegisterPrivateMessageCallbacks(s.homeAssistantCommandParser)
+	s.twitchTrigger.RegisterWhisperCallbacks(s.homeAssistantCommandParser)
 	fmt.Println("Run Service...")
 	if err := s.twitchTrigger.Run(); err != nil {
 		return err
