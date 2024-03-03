@@ -8,7 +8,7 @@ import (
 type Command string
 
 const (
-	LightCommand   Command = "!lights"
+	LightCommand   Command = "color"
 	UnknownCommand Command = "unknown"
 )
 

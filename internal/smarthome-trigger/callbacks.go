@@ -45,5 +45,5 @@ func (s *Service) homeAssistantCommandParser(message string) (*string, error) {
 			return nil, errors.New(fmt.Sprintf("HA Status Code: %s", response.Status))
 		}
 	}
-	return converter.ToPointer("Uhh, its " + content + "now 😏"), nil
+	return converter.ToPointer("Uhh, its " + content + " now 😏"), nil
 }
